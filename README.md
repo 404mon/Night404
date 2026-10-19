@@ -4,6 +4,18 @@
 
 ![Theme Preview](screenshot.png)
 
+## 🎉 Available on Obsidian Community Store!
+
+**Night404 is now officially available for free in the Obsidian community theme store!**
+
+👉 **[View Night404 on the Obsidian Community Store](https://community.obsidian.md/themes/night404)**
+
+You can install it directly from within Obsidian:
+1. Open **Settings** > **Appearance**
+2. Click **Manage** under the Themes section
+3. Search for **Night404**
+4. Click **Install** and then **Use**
+
 ## 🎨 The Palette & Inspiration
 
 Night404 is designed to be easy on the eyes while keeping a distinct, atmospheric cyberpunk/hacker vibe. 
