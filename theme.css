@@ -1,0 +1,286 @@
+/* theme.css 
+    Theme: Night404
+    Author: 404mon
+    Version: 1.0.0
+*/
+
+/* ==========================================================================
+   1. VARIABLES & PALETTE (Alacritty Archwizard)
+   ========================================================================== */
+body {
+    /* --- PALETTE DEFINITIONS --- */
+    
+    /* Backgrounds & Foregrounds */
+    --alac-bg-deep:       #0e0e0e;   /* Deep background */
+    --alac-fg-cream:      #eae8db;   /* Main text */
+    --alac-bg-code:       #2c1f33;   /* Code blocks background */
+    --alac-bg-gray:       #1f1f29;   /* UI and secondary background */
+    --alac-bg-lighter:    #2a2a35;   /* UI Hover / Active state */
+
+    /* Cursor & Selection */
+    --alac-cursor:        #ffffd1;   /* Toxic Yellow */
+    --alac-selection-bg:  #77888c;   /* Dusty Gray */
+    --alac-selection-txt: #f5eac2;   /* Terminal White */
+
+    /* Normal Colors */
+    --alac-red:           #ff252b;   /* Bright Red */
+    --alac-green:         #daefab;   /* Early Green */
+    --alac-yellow:        #f7ecb9;   /* Desk Lamp Yellow */
+    --alac-blue:          #5d718f;   /* Aeternal Blue */
+    --alac-magenta:       #a8141d;   /* Dim Red */
+    --alac-cyan:          #8ea8c1;   /* Dusty Blue */
+    
+    /* Bright Colors & Accents */
+    --alac-red-dead:      #d3181c;   /* Keyboard LED Red */
+    --alac-green-unex:    #add9bc;
+    --alac-yellow-tox:    #ffffd1;   /* Toxic Yellow (Search Match) */
+    --alac-blue-hov:      #d4faff;   /* Floating Dust Blue */
+}
+
+/* ==========================================================================
+   2. THEME SETUP (Dark Mode Mapping)
+   ========================================================================== */
+.theme-dark {
+    /* --- BACKGROUNDS & BASE --- */
+    --background-primary: var(--alac-bg-deep);
+    --background-primary-alt: var(--alac-bg-gray); /* File explorer and panels */
+    --background-secondary: var(--alac-bg-gray);
+    --background-secondary-alt: var(--alac-bg-deep);
+    --background-modifier-border: var(--alac-bg-code); /* UI borders color */
+
+    /* --- TEXT --- */
+    --text-normal: var(--alac-fg-cream);
+    --text-muted:  var(--alac-cyan); 
+    --text-faint:  #444444;
+    --text-selection: var(--alac-selection-bg);
+    --text-accent: var(--alac-red); /* Generic Obsidian accent color */
+    --text-accent-hover: var(--alac-red-dead);
+
+    /* --- CARET / CURSOR --- */
+    --caret-color: var(--alac-cursor);
+
+    /* --- UI ELEMENTS (Tabs, Sidebar, etc.) --- */
+    --tab-text-color: var(--text-muted);
+    --tab-text-color-focused: var(--text-normal);
+    --tab-text-color-active: var(--text-normal);
+    --tab-container-background: var(--alac-bg-gray);
+    --tab-background-active: var(--alac-bg-deep); /* Active tab blends with background */
+    
+    /* --- HEADINGS --- */
+    --h1-color: var(--alac-red);
+    --h2-color: var(--alac-yellow);
+    --h3-color: var(--alac-cyan);
+    --h4-color: var(--alac-magenta);
+    --h5-color: var(--alac-blue);
+    --h6-color: var(--alac-green);
+
+    /* --- LINKS --- */
+    --link-color: var(--alac-blue-hov);
+    --link-color-hover: var(--alac-yellow-tox);
+    --link-decoration: none;
+    --link-external-color: var(--alac-green-unex);
+
+    /* --- CODE --- */
+    --code-background: var(--alac-bg-code);
+    --code-normal: var(--alac-fg-cream);
+    --code-comment: var(--alac-green);
+    --code-function: var(--alac-yellow);
+    --code-keyword: var(--alac-red);
+    --code-string: var(--alac-yellow-tox);
+    --code-block-border-width: 1px;
+    --code-block-border-color: var(--alac-selection-bg);
+    
+    /* --- TABLES --- */
+    --table-header-background: var(--alac-bg-gray);
+    --table-header-background-hover: var(--alac-bg-lighter);
+    --table-row-background-hover: var(--alac-bg-code);
+    --table-border-color: var(--alac-selection-bg);
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHY & TEXT FORMATTING
+   ========================================================================== */
+
+/* Bold (Strong) - Alacritty Red (Funziona in Lettura e Live Preview) */
+strong, .cm-strong {
+    font-weight: 900 !important;
+    color: var(--alac-red) !important;
+}
+
+/* Italic (Em) - Dusty Blue (Funziona in Lettura e Live Preview) */
+em, .cm-em {
+    font-family: var(--font-monospace) !important; 
+    color: var(--alac-cyan) !important;
+}
+
+/* ==========================================================================
+   4. EDITOR STYLING
+   ========================================================================== */
+
+/* TEXT SELECTION (Mouse Drag) */
+::selection, .cm-selection {
+    background-color: var(--alac-selection-bg) !important;
+    color: var(--alac-selection-txt) !important;
+}
+
+/* HIGHLIGHTER (Markdown ==text==) */
+.markdown-rendered mark,
+.cm-highlight {
+    background-color: rgba(255, 37, 43, 0.2) !important; 
+    color: var(--alac-red) !important; 
+    border-bottom: 2px solid var(--alac-red) !important; 
+    border-radius: 2px;
+    padding: 0 2px;
+    font-weight: bold;
+}
+
+/* TAGS (#tag) */
+a.tag,
+.cm-s-obsidian span.cm-hashtag {
+    background-color: var(--alac-magenta) !important;
+    color: var(--alac-fg-cream) !important;
+    border-radius: 4px;
+    text-decoration: none;
+    padding: 1px 6px;
+    font-size: 0.9em;
+}
+
+/* INLINE CODE (`text`) */
+.cm-s-obsidian span.cm-inline-code,
+.markdown-preview-view code {
+    color: var(--alac-yellow-tox) !important;
+    background-color: var(--alac-bg-gray) !important;
+    border: 1px solid var(--alac-selection-bg);
+    border-radius: 4px;
+    padding: 2px 5px;
+    font-family: var(--font-monospace);
+}
+
+/* CODE BLOCKS (Preview & Edit) */
+.markdown-preview-view pre {
+    border: 1px solid var(--alac-cyan) !important;
+    background-color: var(--alac-bg-code) !important;
+    border-radius: 4px;
+    padding: 10px !important;
+}
+
+.cm-s-obsidian .HyperMD-codeblock {
+    background-color: var(--alac-bg-code) !important;
+    line-height: 1.5em;
+}
+
+/* ==========================================================================
+   CUSTOM STRIKETHROUGH (No line, colored #e6e29e)
+   ========================================================================== */
+.cm-strikethrough, del {
+    text-decoration: none !important; /* Removes the middle line */
+    color: #e6e29e !important;        /* Highlight color */
+    font-weight: 600;                 /* Slightly bolder to stand out */
+}
+
+/* ==========================================================================
+   5. UI ELEMENTS (SIDEBAR, TABS, SCROLLBARS)
+   ========================================================================== */
+
+/* File Explorer (Sidebar) - Color uniformity */
+.nav-file-title, .nav-folder-title {
+    color: var(--text-muted);
+}
+.nav-file-title:hover, .nav-folder-title:hover {
+    background-color: var(--alac-bg-lighter);
+    color: var(--text-normal);
+}
+.nav-file-title.is-active {
+    background-color: var(--alac-bg-code);
+    color: var(--alac-red);
+    font-weight: bold;
+    border-left: 2px solid var(--alac-red);
+}
+
+/* Scrollbars (Minimal style) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: var(--alac-bg-deep);
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--alac-bg-lighter);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--alac-selection-bg);
+}
+
+/* ==========================================================================
+   6. CALLOUTS
+   ========================================================================== */
+
+/* Default / Note */
+.callout, .callout[data-callout="note"] {
+    --callout-color: var(--alac-blue);
+    --callout-icon: lucide-pencil;
+    background-color: var(--alac-bg-gray);
+    border-left: 4px solid var(--callout-color);
+}
+/* Info */
+.callout[data-callout="info"] { --callout-color: var(--alac-cyan); }
+/* Success */
+.callout[data-callout="success"] { --callout-color: var(--alac-green); }
+/* Error / Danger */
+.callout[data-callout="error"], .callout[data-callout="danger"], .callout[data-callout="bug"] {
+    --callout-color: var(--alac-red);
+}
+/* Warning / Attention (Acid Style) */
+.callout[data-callout="warning"], .callout[data-callout="attention"] {
+    --callout-color: var(--alac-yellow-tox);
+    background-color: var(--alac-bg-gray);
+}
+.callout[data-callout="warning"] .callout-title,
+.callout[data-callout="attention"] .callout-title {
+    color: var(--alac-yellow-tox) !important;
+}
+.callout[data-callout="warning"] .callout-content,
+.callout[data-callout="attention"] .callout-content {
+    color: var(--alac-fg-cream) !important;
+}
+
+/* ==========================================================================
+   7. CANVAS (Neon Style)
+   ========================================================================== */
+body.theme-dark {
+    --canvas-color-1: var(--alac-red);
+    --canvas-color-2: var(--alac-red-dead);
+    --canvas-color-3: var(--alac-yellow);
+    --canvas-color-4: var(--alac-green);
+    --canvas-color-5: var(--alac-cyan);
+    --canvas-color-6: var(--alac-blue-hov);
+}
+
+.canvas-node .canvas-node-container {
+    background-color: var(--alac-bg-gray) !important;
+    border: 1px solid var(--canvas-color, var(--alac-selection-bg)) !important;
+    box-shadow: 
+        0 0 3px var(--canvas-color, rgba(119, 136, 140, 0.2)), 
+        0 0 6px var(--canvas-color, rgba(119, 136, 140, 0.1)),
+        inset 0 0 20px rgba(0,0,0,0.5) !important;
+    border-radius: 6px;
+}
+
+.canvas-node .canvas-node-content,
+.canvas-node .markdown-preview-view {
+    color: var(--alac-fg-cream) !important;
+}
+
+.canvas-node.is-focused .canvas-node-container {
+    border-color: var(--alac-yellow-tox) !important;
+    box-shadow: 
+        0 0 8px var(--alac-yellow-tox), 
+        inset 0 0 10px var(--alac-bg-deep) !important;
+}
+
+.view-content > .canvas-wrapper {
+    background-color: var(--alac-bg-deep) !important;
+}
+.canvas-background {
+    opacity: 0.05;
+}

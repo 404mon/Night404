@@ -1,0 +1,9 @@
+{
+  "name": "Night404",
+  "version": "1.0.0",
+  "minAppVersion": "1.5.0",
+  "description": "A dark theme inspired by nighttime ambient lighting: the red glow of keyboard LEDs, the warm yellow of a classic desk lamp, and the dusty light blue of floating particles caught in direct light.",
+  "author": "404mon",
+  "authorUrl": "https://github.com/404mon",
+  "isDesktopOnly": false
+}
