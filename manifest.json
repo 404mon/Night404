@@ -1,7 +1,7 @@
 {
-  "name": "Night404",
-  "version": "1.0.0",
-  "minAppVersion": "1.5.0",
-  "author": "404mon",
-  "authorUrl": "https://github.com/404mon"
+    "name": "Night404",
+    "version": "1.1.0",
+    "minAppVersion": "1.13.4",
+    "author": "404mon",
+    "authorUrl": "https://github.com/404mon"
 }
