@@ -30,6 +30,44 @@ settings:
             -
                 label: Deep Night
                 value: night404-code-deep
+    -
+        id: night404-code-no-border
+        title: Hide code block borders
+        description: Remove borders for a minimalist appearance.
+        type: class-toggle
+        default: false
+    -
+        id: night404-code-normal-keywords
+        title: Disable bold keywords
+        description: Use regular font weight for syntax keywords.
+        type: class-toggle
+        default: false
+    -
+        id: night404-code-normal-comments
+        title: Disable italic comments
+        description: Display comments using normal font style.
+        type: class-toggle
+        default: false
+    -
+        id: night404-code-radius
+        title: Code block corner radius
+        description: Adjust the rounding of code block corners.
+        type: variable-number-slider
+        default: 4
+        min: 0
+        max: 16
+        step: 1
+        format: px
+    -
+        id: night404-code-line-height
+        title: Code line height
+        description: Adjust vertical spacing between lines.
+        type: variable-number-slider
+        default: 1.5
+        min: 1.2
+        max: 2
+        step: 0.1
+
 */
 
 /* ==========================================================================
@@ -138,6 +176,8 @@ body {
     --night404-code-padding: 10px;
     --night404-code-line-height: 1.5;
     --night404-code-border: var(--alac-cyan);
+    --night404-code-keyword-weight: 700;
+    --night404-code-comment-style: italic;
 
 }
 
@@ -273,7 +313,7 @@ a.tag,
 .theme-dark .markdown-rendered pre .token.keyword,
 .theme-dark .cm-s-obsidian .cm-hmd-codeblock.cm-keyword {
     color: var(--code-keyword);
-    font-weight: 700;
+    font-weight: var(--night404-code-keyword-weight);
 }
 
 
@@ -284,7 +324,7 @@ a.tag,
 .theme-dark .markdown-rendered pre .token.comment,
 .theme-dark .cm-s-obsidian .cm-hmd-codeblock.cm-comment {
     color: var(--code-comment);
-    font-style: italic;
+    font-style: var(--night404-code-comment-style);
 }
 
 /* --------------------------------------------------------------------------
@@ -441,10 +481,30 @@ body.theme-dark {
    STYLE SETTINGS — USER PREFERENCES
    ========================================================================== */
 
+/* Code block background */
+
 body.theme-dark.night404-code-gray {
     --code-background: var(--alac-bg-gray);
 }
 
 body.theme-dark.night404-code-deep {
     --code-background: var(--alac-bg-deep);
+}
+
+/* Code block border */
+
+body.theme-dark.night404-code-no-border {
+    --night404-code-border: transparent;
+}
+
+/* Keyword typography */
+
+body.theme-dark.night404-code-normal-keywords {
+    --night404-code-keyword-weight: 400;
+}
+
+/* Comment typography */
+
+body.theme-dark.night404-code-normal-comments {
+    --night404-code-comment-style: normal;
 }
