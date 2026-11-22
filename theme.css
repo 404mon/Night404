@@ -4,6 +4,34 @@
     Version: 1.0.0
 */
 
+/* @settings
+
+name: Night404
+id: night404
+settings:
+    -
+        id: night404-code-heading
+        title: Code & Syntax
+        description: Customize your coding environment.
+        type: heading
+        level: 1
+        collapsed: false
+    -
+        id: night404-code-background
+        title: Code block background
+        description: Choose the atmosphere of your code blocks.
+        type: class-select
+        allowEmpty: false
+        default: night404-code-gray
+        options:
+            -
+                label: Dark Gray
+                value: night404-code-gray
+            -
+                label: Deep Night
+                value: night404-code-deep
+*/
+
 /* ==========================================================================
    1. VARIABLES & PALETTE (Alacritty Archwizard)
    ========================================================================== */
@@ -80,13 +108,21 @@ body {
     --link-decoration: none;
     --link-external-color: var(--alac-green-unex);
 
-    /* --- CODE --- */
-    --code-background: var(--alac-bg-code);
-    --code-normal: var(--alac-fg-cream);
-    --code-comment: var(--alac-green);
-    --code-function: var(--alac-yellow);
-    --code-keyword: var(--alac-red);
-    --code-string: var(--alac-yellow-tox);
+    /* --- CODE & SYNTAX HIGHLIGHTING --- */
+
+    --code-background: var(--alac-bg-gray);
+    --code-normal:      var(--alac-fg-cream);
+    --code-comment:     var(--alac-cyan);
+    --code-function:    var(--alac-cyan);
+    --code-keyword:     var(--alac-red);
+    --code-string:      var(--alac-yellow);
+    --code-value:       var(--alac-yellow-tox);
+    --code-property:    var(--alac-blue-hov);
+    --code-operator:    var(--alac-fg-cream);
+    --code-punctuation: var(--alac-fg-cream);
+    --code-tag:         var(--alac-green);
+    --code-important:   var(--alac-red);
+
     --code-block-border-width: 1px;
     --code-block-border-color: var(--alac-selection-bg);
     
@@ -95,6 +131,14 @@ body {
     --table-header-background-hover: var(--alac-bg-lighter);
     --table-row-background-hover: var(--alac-bg-code);
     --table-border-color: var(--alac-selection-bg);
+
+    /* --- NIGHT404 CODE DESIGN SYSTEM --- */
+
+    --night404-code-radius: 4px;
+    --night404-code-padding: 10px;
+    --night404-code-line-height: 1.5;
+    --night404-code-border: var(--alac-cyan);
+
 }
 
 /* ==========================================================================
@@ -145,28 +189,136 @@ a.tag,
     font-size: 0.9em;
 }
 
-/* INLINE CODE (`text`) */
-.cm-s-obsidian span.cm-inline-code,
-.markdown-preview-view code {
-    color: var(--alac-yellow-tox) !important;
-    background-color: var(--alac-bg-gray) !important;
+/* ==========================================================================
+   CODE & SYNTAX HIGHLIGHTING
+   ========================================================================== */
+
+/* Inline code — Reading View */
+
+.theme-dark .markdown-rendered :not(pre) > code {
+    color: var(--alac-yellow-tox);
+    background-color: var(--alac-bg-gray);
     border: 1px solid var(--alac-selection-bg);
     border-radius: 4px;
     padding: 2px 5px;
     font-family: var(--font-monospace);
 }
 
-/* CODE BLOCKS (Preview & Edit) */
-.markdown-preview-view pre {
-    border: 1px solid var(--alac-cyan) !important;
-    background-color: var(--alac-bg-code) !important;
-    border-radius: 4px;
-    padding: 10px !important;
+/* Inline code — Editing View */
+
+.theme-dark .cm-s-obsidian
+.cm-inline-code:not(.cm-formatting) {
+    color: var(--alac-yellow-tox);
+    background-color: var(--alac-bg-gray);
+    font-family: var(--font-monospace);
 }
 
-.cm-s-obsidian .HyperMD-codeblock {
-    background-color: var(--alac-bg-code) !important;
-    line-height: 1.5em;
+/* --------------------------------------------------------------------------
+   FENCED CODE — READING VIEW
+   -------------------------------------------------------------------------- */
+
+.theme-dark .markdown-rendered pre {
+    background-color: var(--code-background);
+    border: 1px solid var(--night404-code-border);
+    border-radius: var(--night404-code-radius);
+    padding: var(--night404-code-padding);
+    line-height: var(--night404-code-line-height);
+}
+
+.theme-dark .markdown-rendered pre > code {
+    font-family: var(--font-monospace);
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    line-height: inherit;
+}
+
+
+/* --------------------------------------------------------------------------
+   FENCED CODE — EDITING VIEW
+   -------------------------------------------------------------------------- */
+
+.theme-dark .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock {
+    background-color: var(--code-background);
+    line-height: var(--night404-code-line-height);
+    border-left: 1px solid var(--night404-code-border);
+    border-right: 1px solid var(--night404-code-border);
+}
+
+
+/* Opening fence */
+
+.theme-dark .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-begin {
+    border-top: 1px solid var(--night404-code-border);
+    border-top-left-radius: var(--night404-code-radius);
+    border-top-right-radius: var(--night404-code-radius);
+}
+
+
+/* Closing fence */
+
+.theme-dark .markdown-source-view.mod-cm6
+.cm-line.HyperMD-codeblock-end {
+    border-bottom: 1px solid var(--night404-code-border);
+    border-bottom-left-radius: var(--night404-code-radius);
+    border-bottom-right-radius: var(--night404-code-radius);
+}
+
+/* --------------------------------------------------------------------------
+   SYNTAX — KEYWORDS
+   -------------------------------------------------------------------------- */
+
+.theme-dark .markdown-rendered pre .token.keyword,
+.theme-dark .cm-s-obsidian .cm-hmd-codeblock.cm-keyword {
+    color: var(--code-keyword);
+    font-weight: 700;
+}
+
+
+/* --------------------------------------------------------------------------
+   SYNTAX — COMMENTS
+   -------------------------------------------------------------------------- */
+
+.theme-dark .markdown-rendered pre .token.comment,
+.theme-dark .cm-s-obsidian .cm-hmd-codeblock.cm-comment {
+    color: var(--code-comment);
+    font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   SYNTAX — FUNCTIONS
+   -------------------------------------------------------------------------- */
+
+.theme-dark .markdown-rendered pre .token.function,
+.theme-dark .cm-s-obsidian .cm-hmd-codeblock.cm-def {
+    color: var(--code-function);
+}
+
+
+/* --------------------------------------------------------------------------
+   SYNTAX — PROPERTIES & VARIABLES
+   -------------------------------------------------------------------------- */
+
+.theme-dark .markdown-rendered pre .token.property,
+.theme-dark .markdown-rendered pre .token.variable,
+.theme-dark .cm-s-obsidian .cm-hmd-codeblock.cm-variable,
+.theme-dark .cm-s-obsidian .cm-hmd-codeblock.cm-property {
+    color: var(--code-property);
+}
+
+
+/* --------------------------------------------------------------------------
+   SYNTAX — NUMBERS & CONSTANTS
+   -------------------------------------------------------------------------- */
+
+.theme-dark .markdown-rendered pre .token.number,
+.theme-dark .markdown-rendered pre .token.boolean,
+.theme-dark .markdown-rendered pre .token.constant,
+.theme-dark .cm-s-obsidian .cm-hmd-codeblock.cm-number,
+.theme-dark .cm-s-obsidian .cm-hmd-codeblock.cm-atom {
+    color: var(--code-value);
 }
 
 /* ==========================================================================
@@ -283,4 +435,16 @@ body.theme-dark {
 }
 .canvas-background {
     opacity: 0.05;
+}
+
+/* ==========================================================================
+   STYLE SETTINGS — USER PREFERENCES
+   ========================================================================== */
+
+body.theme-dark.night404-code-gray {
+    --code-background: var(--alac-bg-gray);
+}
+
+body.theme-dark.night404-code-deep {
+    --code-background: var(--alac-bg-deep);
 }
