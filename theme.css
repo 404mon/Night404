@@ -1,4 +1,4 @@
-/* theme.css 
+/* theme.css
     Theme: Night404
     Author: 404mon
     Version: 1.0.0
@@ -67,36 +67,127 @@ settings:
         min: 1.2
         max: 2
         step: 0.1
-
+    -
+        id: night404-typography-heading
+        title: Typography & Headings
+        description: Bring a little light into the quiet hours.
+        type: heading
+        level: 1
+        collapsed: true
+    -
+        id: night404-disable-gradients
+        title: Disable Nightfall gradients
+        description: Restore the original solid heading colors.
+        type: class-toggle
+        default: false
+    -
+        id: night404-heading-angle
+        title: Gradient direction
+        description: Choose the direction of the heading gradient.
+        type: variable-select
+        default: 180deg
+        options:
+            -
+                label: Vertical
+                value: 180deg
+            -
+                label: Horizontal
+                value: 90deg
+            -
+                label: Diagonal
+                value: 135deg
+    -
+        id: night404-heading-gradient-strength
+        title: Gradient intensity
+        description: Adjust the transition towards lighter tones.
+        type: variable-number-slider
+        default: 30
+        min: 0
+        max: 60
+        step: 5
+        format: '%'
+    -
+        id: night404-heading-glow-strength
+        title: Glow intensity
+        description: Adjust the luminosity around headings.
+        type: variable-number-slider
+        default: 15
+        min: 0
+        max: 40
+        step: 5
+        format: '%'
+    -
+        id: night404-heading-shadow-blur
+        title: Glow radius
+        description: Adjust the softness of the heading glow.
+        type: variable-number-slider
+        default: 5
+        min: 0
+        max: 12
+        step: 1
+        format: px
+    -
+        id: night404-disable-text-gradients
+        title: Disable formatted text gradients
+        description: Restore solid colors for bold, italic and inline code.
+        type: class-toggle
+        default: false
+    -
+        id: night404-interface-heading
+        title: Nightfall Interface
+        description: Illuminate your workspace.
+        type: heading
+        level: 1
+        collapsed: true
+    -
+        id: night404-disable-folder-gradients
+        title: Disable folder gradients
+        description: Restore solid folder name colors.
+        type: class-toggle
+        default: false
+    -
+        id: night404-disable-inactive-file-gradients
+        title: Disable inactive note gradients
+        description: Restore solid colors for inactive notes in the file explorer and tabs.
+        type: class-toggle
+        default: false
+    -
+        id: night404-disable-tab-gradients
+        title: Disable active tab gradients
+        description: Restore solid active tab colors.
+        type: class-toggle
+        default: false
+    -
+        id: night404-disable-title-gradients
+        title: Disable note title gradients
+        description: Restore solid colors for note titles and navigation titles.
+        type: class-toggle
+        default: false
 */
 
 /* ==========================================================================
    1. VARIABLES & PALETTE (Alacritty Archwizard)
    ========================================================================== */
 body {
-    /* --- PALETTE DEFINITIONS --- */
-    
-    /* Backgrounds & Foregrounds */
+/* --- PALETTE DEFINITIONS --- */
+/* Backgrounds & Foregrounds */
     --alac-bg-deep:       #0e0e0e;   /* Deep background */
     --alac-fg-cream:      #eae8db;   /* Main text */
     --alac-bg-code:       #2c1f33;   /* Code blocks background */
     --alac-bg-gray:       #1f1f29;   /* UI and secondary background */
     --alac-bg-lighter:    #2a2a35;   /* UI Hover / Active state */
-
-    /* Cursor & Selection */
+/* Cursor & Selection */
     --alac-cursor:        #ffffd1;   /* Toxic Yellow */
     --alac-selection-bg:  #77888c;   /* Dusty Gray */
     --alac-selection-txt: #f5eac2;   /* Terminal White */
-
-    /* Normal Colors */
+/* Normal Colors */
     --alac-red:           #ff252b;   /* Bright Red */
     --alac-green:         #daefab;   /* Early Green */
     --alac-yellow:        #f7ecb9;   /* Desk Lamp Yellow */
     --alac-blue:          #5d718f;   /* Aeternal Blue */
     --alac-magenta:       #a8141d;   /* Dim Red */
     --alac-cyan:          #8ea8c1;   /* Dusty Blue */
-    
-    /* Bright Colors & Accents */
+/* Bright Colors & Accents */
     --alac-red-dead:      #d3181c;   /* Keyboard LED Red */
     --alac-green-unex:    #add9bc;
     --alac-yellow-tox:    #ffffd1;   /* Toxic Yellow (Search Match) */
@@ -107,47 +198,45 @@ body {
    2. THEME SETUP (Dark Mode Mapping)
    ========================================================================== */
 .theme-dark {
-    /* --- BACKGROUNDS & BASE --- */
+/* --- BACKGROUNDS & BASE --- */
     --background-primary: var(--alac-bg-deep);
     --background-primary-alt: var(--alac-bg-gray); /* File explorer and panels */
     --background-secondary: var(--alac-bg-gray);
     --background-secondary-alt: var(--alac-bg-deep);
     --background-modifier-border: var(--alac-bg-code); /* UI borders color */
-
-    /* --- TEXT --- */
+/* --- TEXT --- */
     --text-normal: var(--alac-fg-cream);
-    --text-muted:  var(--alac-cyan); 
+    --text-muted:  var(--alac-cyan);
     --text-faint:  #444444;
     --text-selection: var(--alac-selection-bg);
     --text-accent: var(--alac-red); /* Generic Obsidian accent color */
     --text-accent-hover: var(--alac-red-dead);
-
-    /* --- CARET / CURSOR --- */
+/* --- CARET / CURSOR --- */
     --caret-color: var(--alac-cursor);
-
-    /* --- UI ELEMENTS (Tabs, Sidebar, etc.) --- */
+/* --- UI ELEMENTS (Tabs, Sidebar, etc.) --- */
     --tab-text-color: var(--text-muted);
     --tab-text-color-focused: var(--text-normal);
     --tab-text-color-active: var(--text-normal);
     --tab-container-background: var(--alac-bg-gray);
     --tab-background-active: var(--alac-bg-deep); /* Active tab blends with background */
-    
-    /* --- HEADINGS --- */
+/* --- HEADINGS --- */
     --h1-color: var(--alac-red);
     --h2-color: var(--alac-yellow);
     --h3-color: var(--alac-cyan);
     --h4-color: var(--alac-magenta);
     --h5-color: var(--alac-blue);
     --h6-color: var(--alac-green);
-
-    /* --- LINKS --- */
+/* --- NIGHTFALL GRADIENTS --- */
+    --night404-heading-gradient-strength: 30%;
+    --night404-heading-glow-strength: 15%;
+    --night404-heading-shadow-blur: 5px;
+    --night404-heading-angle: 180deg;
+/* --- LINKS --- */
     --link-color: var(--alac-blue-hov);
     --link-color-hover: var(--alac-yellow-tox);
     --link-decoration: none;
     --link-external-color: var(--alac-green-unex);
-
-    /* --- CODE & SYNTAX HIGHLIGHTING --- */
-
+/* --- CODE & SYNTAX HIGHLIGHTING --- */
     --code-background: var(--alac-bg-gray);
     --code-normal:      var(--alac-fg-cream);
     --code-comment:     var(--alac-cyan);
@@ -160,64 +249,54 @@ body {
     --code-punctuation: var(--alac-fg-cream);
     --code-tag:         var(--alac-green);
     --code-important:   var(--alac-red);
-
     --code-block-border-width: 1px;
     --code-block-border-color: var(--alac-selection-bg);
-    
-    /* --- TABLES --- */
+/* --- TABLES --- */
     --table-header-background: var(--alac-bg-gray);
     --table-header-background-hover: var(--alac-bg-lighter);
     --table-row-background-hover: var(--alac-bg-code);
     --table-border-color: var(--alac-selection-bg);
-
-    /* --- NIGHT404 CODE DESIGN SYSTEM --- */
-
+/* --- NIGHT404 CODE DESIGN SYSTEM --- */
     --night404-code-radius: 4px;
     --night404-code-padding: 10px;
     --night404-code-line-height: 1.5;
     --night404-code-border: var(--alac-cyan);
     --night404-code-keyword-weight: 700;
     --night404-code-comment-style: italic;
-
 }
 
 /* ==========================================================================
    3. TYPOGRAPHY & TEXT FORMATTING
    ========================================================================== */
-
 /* Bold (Strong) - Alacritty Red (Funziona in Lettura e Live Preview) */
 strong, .cm-strong {
     font-weight: 900 !important;
     color: var(--alac-red) !important;
 }
-
 /* Italic (Em) - Dusty Blue (Funziona in Lettura e Live Preview) */
 em, .cm-em {
-    font-family: var(--font-monospace) !important; 
-    color: var(--alac-cyan) !important;
+    font-family: var(--font-monospace) !important;
+    color: var(--h3-color, var(--alac-cyan)) !important;
 }
 
 /* ==========================================================================
    4. EDITOR STYLING
    ========================================================================== */
-
 /* TEXT SELECTION (Mouse Drag) */
 ::selection, .cm-selection {
     background-color: var(--alac-selection-bg) !important;
     color: var(--alac-selection-txt) !important;
 }
-
 /* HIGHLIGHTER (Markdown ==text==) */
 .markdown-rendered mark,
 .cm-highlight {
-    background-color: rgba(255, 37, 43, 0.2) !important; 
-    color: var(--alac-red) !important; 
-    border-bottom: 2px solid var(--alac-red) !important; 
+    background-color: rgba(255, 37, 43, 0.2) !important;
+    color: var(--alac-red) !important;
+    border-bottom: 2px solid var(--alac-red) !important;
     border-radius: 2px;
     padding: 0 2px;
     font-weight: bold;
 }
-
 /* TAGS (#tag) */
 a.tag,
 .cm-s-obsidian span.cm-hashtag {
@@ -232,9 +311,7 @@ a.tag,
 /* ==========================================================================
    CODE & SYNTAX HIGHLIGHTING
    ========================================================================== */
-
 /* Inline code — Reading View */
-
 .theme-dark .markdown-rendered :not(pre) > code {
     color: var(--alac-yellow-tox);
     background-color: var(--alac-bg-gray);
@@ -243,20 +320,16 @@ a.tag,
     padding: 2px 5px;
     font-family: var(--font-monospace);
 }
-
 /* Inline code — Editing View */
-
 .theme-dark .cm-s-obsidian
 .cm-inline-code:not(.cm-formatting) {
     color: var(--alac-yellow-tox);
     background-color: var(--alac-bg-gray);
     font-family: var(--font-monospace);
 }
-
 /* --------------------------------------------------------------------------
    FENCED CODE — READING VIEW
    -------------------------------------------------------------------------- */
-
 .theme-dark .markdown-rendered pre {
     background-color: var(--code-background);
     border: 1px solid var(--night404-code-border);
@@ -264,7 +337,6 @@ a.tag,
     padding: var(--night404-code-padding);
     line-height: var(--night404-code-line-height);
 }
-
 .theme-dark .markdown-rendered pre > code {
     font-family: var(--font-monospace);
     background-color: transparent;
@@ -272,12 +344,9 @@ a.tag,
     padding: 0;
     line-height: inherit;
 }
-
-
 /* --------------------------------------------------------------------------
    FENCED CODE — EDITING VIEW
    -------------------------------------------------------------------------- */
-
 .theme-dark .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock {
     background-color: var(--code-background);
@@ -285,74 +354,55 @@ a.tag,
     border-left: 1px solid var(--night404-code-border);
     border-right: 1px solid var(--night404-code-border);
 }
-
-
 /* Opening fence */
-
 .theme-dark .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-begin {
     border-top: 1px solid var(--night404-code-border);
     border-top-left-radius: var(--night404-code-radius);
     border-top-right-radius: var(--night404-code-radius);
 }
-
-
 /* Closing fence */
-
 .theme-dark .markdown-source-view.mod-cm6
 .cm-line.HyperMD-codeblock-end {
     border-bottom: 1px solid var(--night404-code-border);
     border-bottom-left-radius: var(--night404-code-radius);
     border-bottom-right-radius: var(--night404-code-radius);
 }
-
 /* --------------------------------------------------------------------------
    SYNTAX — KEYWORDS
    -------------------------------------------------------------------------- */
-
 .theme-dark .markdown-rendered pre .token.keyword,
 .theme-dark .cm-s-obsidian .cm-hmd-codeblock.cm-keyword {
     color: var(--code-keyword);
     font-weight: var(--night404-code-keyword-weight);
 }
-
-
 /* --------------------------------------------------------------------------
    SYNTAX — COMMENTS
    -------------------------------------------------------------------------- */
-
 .theme-dark .markdown-rendered pre .token.comment,
 .theme-dark .cm-s-obsidian .cm-hmd-codeblock.cm-comment {
     color: var(--code-comment);
     font-style: var(--night404-code-comment-style);
 }
-
 /* --------------------------------------------------------------------------
    SYNTAX — FUNCTIONS
    -------------------------------------------------------------------------- */
-
 .theme-dark .markdown-rendered pre .token.function,
 .theme-dark .cm-s-obsidian .cm-hmd-codeblock.cm-def {
     color: var(--code-function);
 }
-
-
 /* --------------------------------------------------------------------------
    SYNTAX — PROPERTIES & VARIABLES
    -------------------------------------------------------------------------- */
-
 .theme-dark .markdown-rendered pre .token.property,
 .theme-dark .markdown-rendered pre .token.variable,
 .theme-dark .cm-s-obsidian .cm-hmd-codeblock.cm-variable,
 .theme-dark .cm-s-obsidian .cm-hmd-codeblock.cm-property {
     color: var(--code-property);
 }
-
-
 /* --------------------------------------------------------------------------
    SYNTAX — NUMBERS & CONSTANTS
    -------------------------------------------------------------------------- */
-
 .theme-dark .markdown-rendered pre .token.number,
 .theme-dark .markdown-rendered pre .token.boolean,
 .theme-dark .markdown-rendered pre .token.constant,
@@ -373,7 +423,6 @@ a.tag,
 /* ==========================================================================
    5. UI ELEMENTS (SIDEBAR, TABS, SCROLLBARS)
    ========================================================================== */
-
 /* File Explorer (Sidebar) - Color uniformity */
 .nav-file-title, .nav-folder-title {
     color: var(--text-muted);
@@ -388,7 +437,6 @@ a.tag,
     font-weight: bold;
     border-left: 2px solid var(--alac-red);
 }
-
 /* Scrollbars (Minimal style) */
 ::-webkit-scrollbar {
     width: 8px;
@@ -406,7 +454,6 @@ a.tag,
 /* ==========================================================================
    6. CALLOUTS
    ========================================================================== */
-
 /* Default / Note */
 .callout, .callout[data-callout="note"] {
     --callout-color: var(--alac-blue);
@@ -447,29 +494,25 @@ body.theme-dark {
     --canvas-color-5: var(--alac-cyan);
     --canvas-color-6: var(--alac-blue-hov);
 }
-
 .canvas-node .canvas-node-container {
     background-color: var(--alac-bg-gray) !important;
     border: 1px solid var(--canvas-color, var(--alac-selection-bg)) !important;
-    box-shadow: 
-        0 0 3px var(--canvas-color, rgba(119, 136, 140, 0.2)), 
+    box-shadow:
+        0 0 3px var(--canvas-color, rgba(119, 136, 140, 0.2)),
         0 0 6px var(--canvas-color, rgba(119, 136, 140, 0.1)),
         inset 0 0 20px rgba(0,0,0,0.5) !important;
     border-radius: 6px;
 }
-
 .canvas-node .canvas-node-content,
 .canvas-node .markdown-preview-view {
     color: var(--alac-fg-cream) !important;
 }
-
 .canvas-node.is-focused .canvas-node-container {
     border-color: var(--alac-yellow-tox) !important;
-    box-shadow: 
-        0 0 8px var(--alac-yellow-tox), 
+    box-shadow:
+        0 0 8px var(--alac-yellow-tox),
         inset 0 0 10px var(--alac-bg-deep) !important;
 }
-
 .view-content > .canvas-wrapper {
     background-color: var(--alac-bg-deep) !important;
 }
@@ -480,31 +523,430 @@ body.theme-dark {
 /* ==========================================================================
    STYLE SETTINGS — USER PREFERENCES
    ========================================================================== */
-
 /* Code block background */
-
 body.theme-dark.night404-code-gray {
     --code-background: var(--alac-bg-gray);
 }
-
 body.theme-dark.night404-code-deep {
     --code-background: var(--alac-bg-deep);
 }
-
 /* Code block border */
-
 body.theme-dark.night404-code-no-border {
     --night404-code-border: transparent;
 }
-
 /* Keyword typography */
-
 body.theme-dark.night404-code-normal-keywords {
     --night404-code-keyword-weight: 400;
 }
-
 /* Comment typography */
-
 body.theme-dark.night404-code-normal-comments {
     --night404-code-comment-style: normal;
+}
+
+/* ==========================================================================
+   NIGHTFALL GRADIENTS
+   A touch of light in the quiet hours.
+   ========================================================================== */
+/* Heading color mapping */
+.theme-dark :is(.markdown-rendered h1, .cm-header-1) {
+    --night404-heading-color: var(--h1-color);
+}
+.theme-dark :is(.markdown-rendered h2, .cm-header-2) {
+    --night404-heading-color: var(--h2-color);
+}
+.theme-dark :is(.markdown-rendered h3, .cm-header-3) {
+    --night404-heading-color: var(--h3-color);
+}
+.theme-dark :is(.markdown-rendered h4, .cm-header-4) {
+    --night404-heading-color: var(--h4-color);
+}
+.theme-dark :is(.markdown-rendered h5, .cm-header-5) {
+    --night404-heading-color: var(--h5-color);
+}
+.theme-dark :is(.markdown-rendered h6, .cm-header-6) {
+    --night404-heading-color: var(--h6-color);
+}
+/* --------------------------------------------------------------------------
+   GRADIENT RENDERING
+   -------------------------------------------------------------------------- */
+@supports (background-clip: text) and
+          (color: color-mix(in srgb, red, white)) {
+    body.theme-dark:not(.night404-disable-gradients) :is(
+        .markdown-rendered h1,
+        .markdown-rendered h2,
+        .markdown-rendered h3,
+        .markdown-rendered h4,
+        .markdown-rendered h5,
+        .markdown-rendered h6,
+        .markdown-source-view.mod-cm6
+        .cm-header:not(.cm-formatting)
+    ) {
+        --night404-gradient: linear-gradient(
+            var(--night404-heading-angle),
+            color-mix(
+                in srgb,
+                var(--night404-heading-color),
+                var(--alac-bg-deep) 25%
+            ) 0%,
+            var(--night404-heading-color) 45%,
+            color-mix(
+                in srgb,
+                var(--night404-heading-color),
+                var(--alac-fg-cream)
+                var(--night404-heading-gradient-strength)
+            ) 100%
+        );
+        background-image: var(--night404-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 100% 1lh;
+        background-repeat: repeat-y;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        text-shadow:
+            0 0 var(--night404-heading-shadow-blur)
+            color-mix(
+                in srgb,
+                var(--night404-heading-color)
+                var(--night404-heading-glow-strength),
+                transparent
+            );
+    }
+/* ----------------------------------------------------------------------
+       SEMANTIC FORMATTING — BOLD, ITALIC & LINKS
+       ---------------------------------------------------------------------- */
+    body.theme-dark:not(.night404-disable-gradients)
+    .markdown-rendered
+    :is(h1, h2, h3, h4, h5, h6)
+    :is(strong, em, a, del),
+    body.theme-dark:not(.night404-disable-gradients)
+    .markdown-source-view.mod-cm6
+    .cm-header:not(.cm-formatting):is(
+        .cm-strong,
+        .cm-em,
+        .cm-hmd-internal-link,
+        .cm-link,
+        .cm-url,
+        .cm-strikethrough
+    ),
+    body.theme-dark:not(.night404-disable-gradients)
+    .markdown-source-view.mod-cm6
+    .cm-header .cm-underline {
+        background-image: linear-gradient(
+            var(--night404-heading-angle),
+            color-mix(
+                in srgb,
+                currentColor,
+                var(--alac-bg-deep) 25%
+            ) 0%,
+            currentColor 45%,
+            color-mix(
+                in srgb,
+                currentColor,
+                var(--alac-fg-cream)
+                var(--night404-heading-gradient-strength)
+            ) 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 100% 1lh;
+        background-repeat: repeat-y;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        text-shadow: none;
+    }
+/* ----------------------------------------------------------------------
+       INLINE CODE — DUAL BACKGROUND LAYERS
+       ---------------------------------------------------------------------- */
+    body.theme-dark:not(.night404-disable-gradients)
+    .markdown-rendered
+    :is(h1, h2, h3, h4, h5, h6) code,
+    body.theme-dark:not(.night404-disable-gradients)
+    .markdown-source-view.mod-cm6
+    .cm-header.cm-inline-code:not(.cm-formatting) {
+        color: var(--alac-yellow-tox);
+        background-image:
+            linear-gradient(
+                var(--night404-heading-angle),
+                color-mix(
+                    in srgb,
+                    var(--alac-yellow-tox),
+                    var(--alac-bg-deep) 25%
+                ) 0%,
+                var(--alac-yellow-tox) 45%,
+                color-mix(
+                    in srgb,
+                    var(--alac-yellow-tox),
+                    var(--alac-fg-cream)
+                    var(--night404-heading-gradient-strength)
+                ) 100%
+            ),
+            linear-gradient(
+                var(--alac-bg-gray),
+                var(--alac-bg-gray)
+            );
+        background-color: transparent;
+        background-clip: text, padding-box;
+        -webkit-background-clip: text, padding-box;
+        -webkit-text-fill-color: transparent;
+        background-size: 100% 1lh, 100% 100%;
+        background-repeat: repeat-y, no-repeat;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        text-shadow: none;
+    }
+/* ----------------------------------------------------------------------
+       HIGHLIGHTED TEXT
+       ---------------------------------------------------------------------- */
+    body.theme-dark:not(.night404-disable-gradients)
+    .markdown-rendered
+    :is(h1, h2, h3, h4, h5, h6) mark,
+    body.theme-dark:not(.night404-disable-gradients)
+    .markdown-source-view.mod-cm6
+    .cm-header.cm-highlight {
+        background-image: none;
+        -webkit-text-fill-color: currentColor;
+        text-shadow: none;
+    }
+}
+/* --------------------------------------------------------------------------
+   MARKDOWN FORMATTING MARKERS
+   -------------------------------------------------------------------------- */
+body.theme-dark:not(.night404-disable-gradients)
+.markdown-source-view.mod-cm6
+.cm-formatting.cm-formatting-header {
+    color: color-mix(
+        in srgb,
+        var(--text-muted),
+        var(--alac-bg-deep) 25%
+    );
+    -webkit-text-fill-color: currentColor;
+    background: none;
+    text-shadow: none;
+}
+/* --------------------------------------------------------------------------
+   SPELL CHECKER COMPATIBILITY
+   -------------------------------------------------------------------------- */
+body.theme-dark:not(.night404-disable-gradients)
+.cm-header::spelling-error {
+    -webkit-text-fill-color: inherit;
+}
+
+/* ==========================================================================
+   NIGHTFALL TYPOGRAPHY
+   Illuminated Markdown formatting.
+   ========================================================================== */
+@supports (background-clip: text) and
+          (color: color-mix(in srgb, red, white)) {
+/* ----------------------------------------------------------------------
+       BOLD & ITALIC — BODY TEXT
+       ---------------------------------------------------------------------- */
+    body.theme-dark:not(.night404-disable-text-gradients)
+    .markdown-rendered
+    :is(strong, em):not(
+        :is(h1, h2, h3, h4, h5, h6, pre, code) *
+    ),
+    body.theme-dark:not(.night404-disable-text-gradients)
+    .markdown-source-view.mod-cm6
+    :is(.cm-strong, .cm-em):not(
+        .cm-header,
+        .cm-formatting,
+        .cm-hmd-codeblock,
+        .cm-inline-code
+    ) {
+        background-image: linear-gradient(
+            180deg,
+            color-mix(
+                in srgb,
+                currentColor,
+                var(--alac-bg-deep) 25%
+            ) 0%,
+            currentColor 45%,
+            color-mix(
+                in srgb,
+                currentColor,
+                var(--alac-fg-cream)
+                var(--night404-heading-gradient-strength)
+            ) 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 100% 1lh;
+        background-repeat: repeat-y;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        text-shadow:
+            0 0 var(--night404-heading-shadow-blur)
+            color-mix(
+                in srgb,
+                currentColor
+                var(--night404-heading-glow-strength),
+                transparent
+            );
+    }
+/* ----------------------------------------------------------------------
+       INLINE CODE — BODY TEXT
+       ---------------------------------------------------------------------- */
+    body.theme-dark:not(.night404-disable-text-gradients)
+    .markdown-rendered :not(pre) > code:not(
+        :is(h1, h2, h3, h4, h5, h6) *
+    ),
+    body.theme-dark:not(.night404-disable-text-gradients)
+    .markdown-source-view.mod-cm6
+    .cm-inline-code:not(
+        .cm-formatting,
+        .cm-header,
+        .cm-hmd-codeblock
+    ) {
+        background-image:
+            linear-gradient(
+                180deg,
+                color-mix(
+                    in srgb,
+                    var(--alac-yellow-tox),
+                    var(--alac-bg-deep) 25%
+                ) 0%,
+                var(--alac-yellow-tox) 45%,
+                color-mix(
+                    in srgb,
+                    var(--alac-yellow-tox),
+                    var(--alac-fg-cream)
+                    var(--night404-heading-gradient-strength)
+                ) 100%
+            ),
+            linear-gradient(
+                var(--alac-bg-gray),
+                var(--alac-bg-gray)
+            );
+        background-color: transparent;
+        background-clip: text, padding-box;
+        -webkit-background-clip: text, padding-box;
+        -webkit-text-fill-color: transparent;
+        background-size: 100% 1lh, 100% 100%;
+        background-repeat: repeat-y, no-repeat;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        text-shadow:
+            0 0 var(--night404-heading-shadow-blur)
+            color-mix(
+                in srgb,
+                var(--alac-yellow-tox)
+                var(--night404-heading-glow-strength),
+                transparent
+            );
+    }
+}
+
+/* ==========================================================================
+   NIGHTFALL INTERFACE
+   Light throughout the workspace.
+   ========================================================================== */
+body.theme-dark {
+    --night404-folder-gradient: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--h1-color), var(--alac-bg-deep) 25%) 0%,
+        var(--h1-color) 45%,
+        color-mix(in srgb, var(--h1-color), var(--alac-fg-cream)
+            var(--night404-heading-gradient-strength)) 100%
+    );
+    --night404-inactive-file-gradient: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--h3-color), var(--alac-bg-deep) 25%) 0%,
+        var(--h3-color) 45%,
+        color-mix(in srgb, var(--h3-color), var(--alac-fg-cream)
+            var(--night404-heading-gradient-strength)) 100%
+    );
+    --night404-tab-gradient: linear-gradient(
+        180deg,
+        var(--alac-cyan),
+        var(--alac-blue-hov)
+    );
+    --night404-title-gradient: linear-gradient(
+        180deg,
+        var(--alac-red),
+        color-mix(
+            in srgb,
+            var(--alac-red),
+            var(--alac-fg-cream) 30%
+        )
+    );
+}
+@supports (background-clip: text) and
+          (color: color-mix(in srgb, red, white)) {
+/* ----------------------------------------------------------------------
+       FOLDER NAMES — MIDNIGHT EMBER
+       ---------------------------------------------------------------------- */
+    body.theme-dark:not(.night404-disable-folder-gradients)
+    .nav-folder-title-content:not(:focus):not([contenteditable="true"]) {
+        color: var(--h1-color);
+        background-image: var(--night404-folder-gradient);
+        background-size: 100% 1lh;
+        background-position: center top;
+        background-repeat: repeat-y;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+    }
+    /* Inactive notes — Heading 3 palette; active files remain unchanged. */
+    body.theme-dark:not(.night404-disable-inactive-file-gradients)
+    .nav-file-title:not(.is-active)
+    .nav-file-title-content:not(:focus):not([contenteditable="true"]),
+    body.theme-dark:not(.night404-disable-inactive-file-gradients)
+    .workspace-tab-header:not(.is-active)
+    .workspace-tab-header-inner-title {
+        color: var(--h3-color);
+        background-image: var(--night404-inactive-file-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 100% 1lh;
+        background-position: center top;
+        background-repeat: repeat-y;
+    }
+/* ----------------------------------------------------------------------
+       ACTIVE TABS — FLOATING DUST
+       ---------------------------------------------------------------------- */
+    body.theme-dark:not(.night404-disable-tab-gradients)
+    .workspace-tab-header.is-active
+    .workspace-tab-header-inner-title {
+        background-image: var(--night404-tab-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+/* ----------------------------------------------------------------------
+       NOTE TITLES — NIGHTFALL
+       ---------------------------------------------------------------------- */
+    body.theme-dark:not(.night404-disable-title-gradients)
+    .inline-title:not(:focus),
+    body.theme-dark:not(.night404-disable-title-gradients)
+    .view-header-title:not(:focus) {
+        background-image: var(--night404-title-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow:
+            0 0 5px
+            color-mix(
+                in srgb,
+                var(--alac-red) 15%,
+                transparent
+            );
+    }
+/* ----------------------------------------------------------------------
+       BREADCRUMB — CURRENT NOTE
+       ---------------------------------------------------------------------- */
+    body.theme-dark:not(.night404-disable-title-gradients)
+    .view-header-title-container
+    .view-header-title-parent
+    .view-header-breadcrumb:last-child {
+        background-image: var(--night404-title-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
