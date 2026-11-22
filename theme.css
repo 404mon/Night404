@@ -268,24 +268,38 @@ body {
 /* ==========================================================================
    3. TYPOGRAPHY & TEXT FORMATTING
    ========================================================================== */
-/* Bold (Strong) - Alacritty Red (Funziona in Lettura e Live Preview) */
-strong, .cm-strong {
-    font-weight: 900 !important;
-    color: var(--alac-red) !important;
+
+/* Bold — Focus Red */
+
+.theme-dark .markdown-rendered strong,
+.theme-dark .markdown-source-view.mod-cm6 .cm-strong {
+    font-weight: 900;
+    color: var(--alac-red);
 }
-/* Italic (Em) - Dusty Blue (Funziona in Lettura e Live Preview) */
-em, .cm-em {
-    font-family: var(--font-monospace) !important;
-    color: var(--h3-color, var(--alac-cyan)) !important;
+
+/* Italic — Dusty Blue (H3) */
+
+.theme-dark .markdown-rendered em,
+.theme-dark .markdown-source-view.mod-cm6 .cm-em {
+    font-family: var(--font-monospace);
+    color: var(--h3-color);
 }
 
 /* ==========================================================================
    4. EDITOR STYLING
    ========================================================================== */
-/* TEXT SELECTION (Mouse Drag) */
-::selection, .cm-selection {
-    background-color: var(--alac-selection-bg) !important;
-    color: var(--alac-selection-txt) !important;
+/* Text selection — Reading View */
+
+.theme-dark .markdown-rendered ::selection {
+    background-color: var(--alac-selection-bg);
+    color: var(--alac-selection-txt);
+}
+
+/* Text selection — CodeMirror 6 */
+
+.theme-dark .markdown-source-view.mod-cm6
+.cm-editor .cm-selectionLayer .cm-selectionBackground {
+    background-color: var(--alac-selection-bg);
 }
 /* HIGHLIGHTER (Markdown ==text==) */
 .markdown-rendered mark,
