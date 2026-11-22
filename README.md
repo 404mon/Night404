@@ -1,4 +1,4 @@
-# Night404
+# 🌕 Night404
 
 **Nightfall Update — 1.1.0**
 
@@ -10,7 +10,7 @@ Nightfall extends the original palette with subtle gradients and glow, while kee
 
 ![Night404 theme preview](screenshot.png)
 
-## Installation
+## 💾 Installation
 
 Night404 is available free of charge in the [Obsidian Community Store](https://community.obsidian.md/themes/night404).
 
@@ -22,7 +22,7 @@ For manual installation, download `theme.css` and `manifest.json` from the match
 
 Nightfall targets Obsidian 1.13.4 or newer. Older versions are outside the supported target for this update.
 
-## Nightfall features
+## 🌑 Nightfall features
 
 - Six distinct heading colors with gradients, subtle glow and multiline styling.
 - Semantic gradients for bold, italic and inline code, including formatted headings.
@@ -31,7 +31,7 @@ Nightfall targets Obsidian 1.13.4 or newer. Older versions are outside the suppo
 - Custom Markdown highlighting, tags, callouts and neon-style Canvas nodes.
 - CSS-only styling with no required community plugin or bundled fonts.
 
-## Palette
+## 🫟 Palette
 
 | Color | Hex | Inspiration |
 | --- | --- | --- |
@@ -43,11 +43,11 @@ Nightfall targets Obsidian 1.13.4 or newer. Older versions are outside the suppo
 | Dusty Blue | `#8ea8c1` | Particles caught in light |
 | Terminal Cream | `#eae8db` | Soft main text |
 
-## Customization (optional)
+## 🔧 Customization (optional)
 
 Install and enable [Style Settings](https://community.obsidian.md/plugins/obsidian-style-settings), then open its settings and expand **Night404**. The theme works without the plugin; the controls below are optional.
 
-### Code & Syntax
+### 🔤 Code & Syntax
 
 | Setting | Default |
 | --- | --- |
@@ -58,7 +58,7 @@ Install and enable [Style Settings](https://community.obsidian.md/plugins/obsidi
 | Code block corner radius | 4 px (0–16 px) |
 | Code line height | 1.5 (1.2–2) |
 
-### Typography & Headings
+### ⌨️ Typography & Headings
 
 | Setting | Default |
 | --- | --- |
@@ -83,6 +83,6 @@ The original preview uses **Proto Nerd Font** for the interface and standard tex
 
 Report rendering issues or suggest improvements through [GitHub Issues](https://github.com/404mon/Night404/issues). Include the Obsidian version, platform and editor mode. See [CONTRIBUTING.md](CONTRIBUTING.md) and [CHANGELOG.md](CHANGELOG.md).
 
-## License
+## 📜 License
 
 [MIT](LICENSE) — 404mon.
