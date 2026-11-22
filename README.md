@@ -33,15 +33,17 @@ Nightfall targets Obsidian 1.13.4 or newer. Older versions are outside the suppo
 
 ## 🫟 Palette
 
-| Color | Hex | Inspiration |
-| --- | --- | --- |
-| Deep Night | `#0e0e0e` | A dark room |
-| Dark Gray | `#1f1f29` | Workspace surfaces |
-| Keyboard LED | `#d3181c` | Red keyboard lighting |
-| Focus Red | `#ff252b` | Bright emphasis |
-| Desk Lamp | `#f7ecb9` | Warm yellow light |
-| Dusty Blue | `#8ea8c1` | Particles caught in light |
-| Terminal Cream | `#eae8db` | Soft main text |
+## 🎨 Palette
+
+| Preview | Color | Hex | Inspiration |
+|---|---|---|---|
+| ![#0e0e0e](https://img.shields.io/badge/Color-0e0e0e?style=flat-square&label=) | Deep Night | `#0e0e0e` | A dark room |
+| ![#1f1f29](https://img.shields.io/badge/Color-1f1f29?style=flat-square&label=) | Dark Gray | `#1f1f29` | Workspace surfaces |
+| ![#d3181c](https://img.shields.io/badge/Color-d3181c?style=flat-square&label=) | Keyboard LED | `#d3181c` | Red keyboard lighting |
+| ![#ff252b](https://img.shields.io/badge/Color-ff252b?style=flat-square&label=) | Focus Red | `#ff252b` | Bright emphasis |
+| ![#f7ecb9](https://img.shields.io/badge/Color-f7ecb9?style=flat-square&label=) | Desk Lamp | `#f7ecb9` | Warm yellow light |
+| ![#8ea8c1](https://img.shields.io/badge/Color-8ea8c1?style=flat-square&label=) | Dusty Blue | `#8ea8c1` | Particles caught in light |
+| ![#eae8db](https://img.shields.io/badge/Color-eae8db?style=flat-square&label=) | Terminal Cream | `#eae8db` | Soft main text |
 
 ## 🔧 Customization (optional)
 
