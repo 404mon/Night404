@@ -211,6 +211,7 @@ body {
     --text-selection: var(--alac-selection-bg);
     --text-accent: var(--alac-red); /* Generic Obsidian accent color */
     --text-accent-hover: var(--alac-red-dead);
+    --text-highlight-bg: rgba(255, 37, 43, 0.2);
 /* --- CARET / CURSOR --- */
     --caret-color: var(--alac-cursor);
 /* --- UI ELEMENTS (Tabs, Sidebar, etc.) --- */
@@ -302,20 +303,23 @@ body {
     background-color: var(--alac-selection-bg);
 }
 /* HIGHLIGHTER (Markdown ==text==) */
-.markdown-rendered mark,
-.cm-highlight {
-    background-color: rgba(255, 37, 43, 0.2) !important;
-    color: var(--alac-red) !important;
-    border-bottom: 2px solid var(--alac-red) !important;
+
+.theme-dark .markdown-rendered mark,
+.theme-dark .markdown-source-view.mod-cm6 .cm-highlight {
+    background-color: var(--text-highlight-bg);
+    color: var(--alac-red);
+    border-bottom: 2px solid var(--alac-red);
     border-radius: 2px;
     padding: 0 2px;
     font-weight: bold;
 }
 /* TAGS (#tag) */
-a.tag,
-.cm-s-obsidian span.cm-hashtag {
-    background-color: var(--alac-magenta) !important;
-    color: var(--alac-fg-cream) !important;
+
+.theme-dark .markdown-rendered a.tag,
+.theme-dark .markdown-source-view.mod-cm6
+.cm-hashtag {
+    background-color: var(--alac-magenta);
+    color: var(--alac-fg-cream);
     border-radius: 4px;
     text-decoration: none;
     padding: 1px 6px;
@@ -426,12 +430,15 @@ a.tag,
 }
 
 /* ==========================================================================
-   CUSTOM STRIKETHROUGH (No line, colored #e6e29e)
+   CUSTOM STRIKETHROUGH
    ========================================================================== */
-.cm-strikethrough, del {
-    text-decoration: none !important; /* Removes the middle line */
-    color: #e6e29e !important;        /* Highlight color */
-    font-weight: 600;                 /* Slightly bolder to stand out */
+
+.theme-dark .markdown-rendered del,
+.theme-dark .markdown-source-view.mod-cm6
+.cm-strikethrough {
+    text-decoration: none;
+    color: #e6e29e;
+    font-weight: 600;
 }
 
 /* ==========================================================================
