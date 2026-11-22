@@ -33,8 +33,6 @@ Nightfall targets Obsidian 1.13.4 or newer. Older versions are outside the suppo
 
 ## 🫟 Palette
 
-## 🎨 Palette
-
 | Preview | Color | Hex | Inspiration |
 |---|---|---|---|
 | ![#0e0e0e](https://img.shields.io/badge/Color-0e0e0e?style=flat-square&label=) | Deep Night | `#0e0e0e` | A dark room |
