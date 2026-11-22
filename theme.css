@@ -475,38 +475,72 @@ body {
 /* ==========================================================================
    6. CALLOUTS
    ========================================================================== */
-/* Default / Note */
-.callout, .callout[data-callout="note"] {
-    --callout-color: var(--alac-blue);
-    --callout-icon: lucide-pencil;
+
+/* Shared callout appearance */
+
+.theme-dark .callout {
     background-color: var(--alac-bg-gray);
     border-left: 4px solid var(--callout-color);
 }
-/* Info */
-.callout[data-callout="info"] { --callout-color: var(--alac-cyan); }
+
+/* Note */
+
+.theme-dark .callout[data-callout="note"] {
+    --callout-color: var(--alac-blue);
+    --callout-icon: lucide-pencil;
+}
+
+/* Information */
+
+.theme-dark .callout[data-callout="info"] {
+    --callout-color: var(--alac-cyan);
+}
+
 /* Success */
-.callout[data-callout="success"] { --callout-color: var(--alac-green); }
-/* Error / Danger */
-.callout[data-callout="error"], .callout[data-callout="danger"], .callout[data-callout="bug"] {
+
+.theme-dark .callout[data-callout="success"] {
+    --callout-color: var(--alac-green);
+}
+
+/* Error / Danger / Bug */
+
+.theme-dark .callout:is(
+    [data-callout="error"],
+    [data-callout="danger"],
+    [data-callout="bug"]
+) {
     --callout-color: var(--alac-red);
 }
-/* Warning / Attention (Acid Style) */
-.callout[data-callout="warning"], .callout[data-callout="attention"] {
+
+/* Warning / Attention */
+
+.theme-dark .callout:is(
+    [data-callout="warning"],
+    [data-callout="attention"]
+) {
     --callout-color: var(--alac-yellow-tox);
-    background-color: var(--alac-bg-gray);
 }
-.callout[data-callout="warning"] .callout-title,
-.callout[data-callout="attention"] .callout-title {
-    color: var(--alac-yellow-tox) !important;
+
+.theme-dark .callout:is(
+    [data-callout="warning"],
+    [data-callout="attention"]
+) .callout-title {
+    color: var(--alac-yellow-tox);
 }
-.callout[data-callout="warning"] .callout-content,
-.callout[data-callout="attention"] .callout-content {
-    color: var(--alac-fg-cream) !important;
+
+.theme-dark .callout:is(
+    [data-callout="warning"],
+    [data-callout="attention"]
+) .callout-content {
+    color: var(--alac-fg-cream);
 }
 
 /* ==========================================================================
-   7. CANVAS (Neon Style)
+   7. CANVAS — NEON STYLE
    ========================================================================== */
+
+/* Canvas palette */
+
 body.theme-dark {
     --canvas-color-1: var(--alac-red);
     --canvas-color-2: var(--alac-red-dead);
@@ -514,30 +548,61 @@ body.theme-dark {
     --canvas-color-4: var(--alac-green);
     --canvas-color-5: var(--alac-cyan);
     --canvas-color-6: var(--alac-blue-hov);
+
+    --canvas-background: var(--alac-bg-deep);
 }
+
+/* Node appearance */
+
+.theme-dark .canvas-wrapper
 .canvas-node .canvas-node-container {
-    background-color: var(--alac-bg-gray) !important;
-    border: 1px solid var(--canvas-color, var(--alac-selection-bg)) !important;
-    box-shadow:
-        0 0 3px var(--canvas-color, rgba(119, 136, 140, 0.2)),
-        0 0 6px var(--canvas-color, rgba(119, 136, 140, 0.1)),
-        inset 0 0 20px rgba(0,0,0,0.5) !important;
+    background-color: var(--alac-bg-gray);
+
+    border: 1px solid
+        var(--canvas-color, var(--alac-selection-bg));
+
     border-radius: 6px;
+
+    box-shadow:
+        0 0 3px
+        var(--canvas-color, rgba(119, 136, 140, 0.2)),
+
+        0 0 6px
+        var(--canvas-color, rgba(119, 136, 140, 0.1)),
+
+        inset 0 0 20px rgba(0, 0, 0, 0.5);
 }
+
+/* Node content */
+
+.theme-dark .canvas-wrapper
 .canvas-node .canvas-node-content,
+
+.theme-dark .canvas-wrapper
 .canvas-node .markdown-preview-view {
-    color: var(--alac-fg-cream) !important;
+    color: var(--alac-fg-cream);
 }
+
+/* Focused node */
+
+.theme-dark .canvas-wrapper
 .canvas-node.is-focused .canvas-node-container {
-    border-color: var(--alac-yellow-tox) !important;
+    border-color: var(--alac-yellow-tox);
+
     box-shadow:
         0 0 8px var(--alac-yellow-tox),
-        inset 0 0 10px var(--alac-bg-deep) !important;
+        inset 0 0 10px var(--alac-bg-deep);
 }
-.view-content > .canvas-wrapper {
-    background-color: var(--alac-bg-deep) !important;
+
+/* Workspace background */
+
+.theme-dark .view-content > .canvas-wrapper {
+    background-color: var(--canvas-background);
 }
-.canvas-background {
+
+/* Subtle background grid */
+
+.theme-dark .canvas-wrapper .canvas-background {
     opacity: 0.05;
 }
 
